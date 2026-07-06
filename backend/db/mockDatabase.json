@@ -1,0 +1,68 @@
+[
+  {
+    "mrn": "MRN-100",
+    "name": "Maya Brooks",
+    "dob": "1958-04-12",
+    "diagnoses": ["Community acquired pneumonia, resolved"],
+    "mobilityLevel": "independent",
+    "oxygenRequired": false,
+    "oxygenLiters": null,
+    "cognitiveStatus": "alert",
+    "fallRisk": false,
+    "currentMedications": [
+      { "name": "Lisinopril", "tier": 1, "controlled": false }
+    ],
+    "livingSituation": {
+      "address": "1400 Mockingbird Lane",
+      "floorLevel": 1,
+      "hasElevator": true,
+      "hasStairs": false,
+      "livesAloneDefault": false
+    },
+    "insurance": { "provider": "Acme Health", "verified": true }
+  },
+  {
+    "mrn": "MRN-200",
+    "name": "Eleanor Vance",
+    "dob": "1944-09-03",
+    "diagnoses": ["Heart failure", "Diabetes"],
+    "mobilityLevel": "walker",
+    "oxygenRequired": false,
+    "oxygenLiters": null,
+    "cognitiveStatus": "alert",
+    "fallRisk": true,
+    "currentMedications": [
+      { "name": "Apixaban", "tier": 4, "controlled": false }
+    ],
+    "livingSituation": {
+      "address": "22 Cedar Test Avenue",
+      "floorLevel": 2,
+      "hasElevator": false,
+      "hasStairs": true,
+      "livesAloneDefault": true
+    },
+    "insurance": { "provider": "Example Medicare", "verified": false }
+  },
+  {
+    "mrn": "MRN-300",
+    "name": "Thomas Reid",
+    "dob": "1937-01-22",
+    "diagnoses": ["COPD", "Recent hip fracture"],
+    "mobilityLevel": "wheelchair",
+    "oxygenRequired": true,
+    "oxygenLiters": 2,
+    "cognitiveStatus": "confused",
+    "fallRisk": true,
+    "currentMedications": [
+      { "name": "Oxycodone", "tier": 3, "controlled": true }
+    ],
+    "livingSituation": {
+      "address": "88 Synthetic Patient Road",
+      "floorLevel": 3,
+      "hasElevator": false,
+      "hasStairs": true,
+      "livesAloneDefault": true
+    },
+    "insurance": { "provider": null, "verified": false }
+  }
+]
