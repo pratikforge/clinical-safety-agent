@@ -79,3 +79,6 @@ Whenever you make a mistake or encounter an error during execution, you MUST log
 
 10. Pre-Commit Hooks and Automation
 Whenever possible and structurally applicable, you MUST include a plan and scripts for pre-commit hooks (e.g., using Husky or native Git hooks). These hooks should automate our guardrails, testing, and formatting to ensure no code is permanently committed without passing the established validation and security checks.
+
+11. No Force Commits
+Under absolutely no circumstances should you ever use force commits (e.g., `git commit --no-verify`, `git push --force`) to bypass the pre-commit hooks or automated tests. If a commit is failing, the underlying code or test MUST be fixed before proceeding. Bypassing guardrails is strictly forbidden.
