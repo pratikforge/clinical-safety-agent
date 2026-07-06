@@ -23,8 +23,8 @@ export default function SidebarContainer() {
         <div>
           <p>Social Services Copilot</p>
           <h2>Discharge Safety</h2>
-          <span style={{ display: "block", marginTop: "0.5rem", fontSize: "0.85rem", color: "#cbd5e1", lineHeight: "1.3" }}>
-            AI-powered clinical safety review and compliance checks.
+          <span style={{ display: "block", marginTop: "0.75rem", fontSize: "0.85rem", color: "#e2e8f0", lineHeight: "1.4" }}>
+            Ensure a safe transition of care. Verify clinical readiness, caregiver support, and compliance requirements before finalizing discharge.
           </span>
         </div>
         <button ref={closeRef} type="button" className="icon-button" aria-label="Close copilot sidebar" aria-expanded={state.uiState.sidebarOpen} onClick={() => dispatch({ type: "toggleSidebar", open: false })}>
