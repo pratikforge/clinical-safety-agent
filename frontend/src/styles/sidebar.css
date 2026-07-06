@@ -7,13 +7,13 @@
   width: 420px; /* Slightly wider for premium feel */
   height: 100vh;
   overflow-y: auto;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 3px solid #6366f1; /* Distinct AI boundary */
   background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
   color: #1e293b;
   padding: 1.25rem;
   z-index: 9999;
   transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother spring transition */
-  box-shadow: -10px 0 30px rgba(0,0,0,0.08), -2px 0 10px rgba(79, 70, 229, 0.05); /* Premium depth */
+  box-shadow: -10px 0 30px rgba(0,0,0,0.12), -2px 0 10px rgba(79, 70, 229, 0.1); /* Stronger premium depth */
   display: flex;
   flex-direction: column;
   border-top-left-radius: 16px;
@@ -32,7 +32,7 @@
   gap: 1rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #d1d5db; /* Matched EHR intensity */
 }
 
 .copilot-sidebar header p {
@@ -57,7 +57,7 @@
 .copilot-sidebar .icon-button {
   background: transparent;
   border: none;
-  color: #94a3b8;
+  color: #64748b;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 50%;
@@ -68,17 +68,17 @@
 }
 
 .copilot-sidebar .icon-button:hover {
-  background: #f1f5f9;
+  background: #e2e8f0;
   color: #334155;
 }
 
 /* Readiness Score Glassmorphism */
 .readiness-score {
-  border: 1px solid rgba(99, 102, 241, 0.15);
+  border: 1px solid #c7d2fe; /* Stronger AI-tinted border */
   border-radius: 12px;
   padding: 1.25rem;
-  background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(243, 244, 246, 0.6) 100%);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(238, 242, 255, 0.6) 100%);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(10px);
 }
 
@@ -104,9 +104,9 @@
   font-size: 0.9rem;
 }
 
-.score-block { border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(135deg, rgba(254, 242, 242, 0.8), rgba(255, 255, 255, 0.8)); }
-.score-warn { border-color: rgba(245, 158, 11, 0.4); background: linear-gradient(135deg, rgba(255, 251, 235, 0.8), rgba(255, 255, 255, 0.8)); }
-.score-pass { border-color: rgba(34, 197, 94, 0.4); background: linear-gradient(135deg, rgba(240, 253, 244, 0.8), rgba(255, 255, 255, 0.8)); }
+.score-block { border-color: #fca5a5; background: linear-gradient(135deg, rgba(254, 242, 242, 0.9), rgba(255, 255, 255, 0.9)); }
+.score-warn { border-color: #fcd34d; background: linear-gradient(135deg, rgba(255, 251, 235, 0.9), rgba(255, 255, 255, 0.9)); }
+.score-pass { border-color: #86efac; background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(255, 255, 255, 0.9)); }
 
 /* Summary Metrics */
 .summary-metrics {
@@ -117,7 +117,7 @@
 }
 
 .summary-metrics div {
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid #cbd5e1; /* Matched EHR border intensity */
   border-radius: 8px;
   padding: 0.75rem 0.5rem;
   background: #ffffff;
@@ -165,7 +165,7 @@
   display: grid;
   grid-template-columns: 1.5rem minmax(0, 1fr);
   gap: 0.75rem;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid #cbd5e1; /* Matched EHR intensity */
   border-left-width: 4px;
   border-radius: 8px;
   padding: 1rem;
@@ -213,11 +213,11 @@
 .severity-system svg, .severity-system strong { color: #4f46e5; }
 
 .empty-state {
-  border: 1px dashed rgba(0,0,0,0.15);
+  border: 1px dashed #94a3b8; /* Stronger dashed border */
   border-radius: 8px;
   margin: 0;
   padding: 1.5rem;
-  color: #64748b;
+  color: #475569;
   text-align: center;
   font-size: 0.9rem;
 }
@@ -253,7 +253,8 @@
 }
 
 .primary-ai-btn:disabled {
-  background: #cbd5e1;
+  background: #94a3b8; /* Much more visible disabled state */
+  color: #f1f5f9;
   box-shadow: none;
   cursor: not-allowed;
   transform: none;
@@ -312,7 +313,7 @@
 /* Workflow Path */
 .workflow-path {
   margin-top: 1.25rem;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid #cbd5e1; /* Matched EHR intensity */
   border-radius: 8px;
   padding: 1rem;
   background: #ffffff;
