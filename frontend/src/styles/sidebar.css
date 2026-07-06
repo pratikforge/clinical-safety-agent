@@ -27,9 +27,8 @@
 /* Header with subtle gradient slab */
 .copilot-sidebar header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.25rem;
   margin: -1.25rem -1.25rem 1.5rem -1.25rem;
   padding: 1.5rem 1.25rem;
   background: linear-gradient(135deg, #1e293b 0%, #3730a3 100%);
@@ -38,19 +37,43 @@
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
-.copilot-sidebar header p {
-  margin: 0;
-  color: #a5b4fc; /* Light indigo branding */
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.copilot-sidebar h2 {
-  margin: 0.25rem 0 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+.brand-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: #ffffff;
 }
 
