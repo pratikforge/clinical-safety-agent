@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { ShieldCheck } from "lucide-react";
 import { DischargeFormProvider, useDischargeForm } from "./context/DischargeFormContext.jsx";
 import ErrorBoundary from "./components/common/ErrorBoundary.jsx";
 import StatusBanner from "./components/common/StatusBanner.jsx";
@@ -60,7 +61,7 @@ function AppContent() {
           style={{ top: triggerY }}
           aria-label="Open Copilot"
         >
-          <span>C</span>
+          <ShieldCheck size={26} strokeWidth={2.5} color="#e0e7ff" />
         </button>
       )}
     </div>
