@@ -73,3 +73,6 @@ All plans and procedures must adhere to "TEST DRIVEN DEVELOPMENT". This means yo
 - Test scripts for edge cases and potential failures.
 - Test scripts for testing cyber attacks on that code to verify vulnerability against hacks and malicious intent.
 For cyber attack test scripts, refer to the STRIDE framework, OWASP Top 10, and other established frameworks. Do not accumulate the explanations of these frameworks in this file to avoid context rot; instead, utilize the `cyber-security-frameworks` skill.
+
+9. Error Logging and Continuous Learning
+Whenever you make a mistake or encounter an error during execution, you MUST log the mistake in `telemetry/error_log.md`. Include a description of the error and the exact procedure or code that caused it. This creates a dataset of failures that we will use to dynamically update these rules and prevent future recurrence.
