@@ -8,73 +8,73 @@
       "eval_case_id": "safe_discharge",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: allow_demo_submit\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> allowed_decision\nreadiness score: 100\nllm status: rules_only\nalerts:\n- "
+      "response_excerpt": "decision: allow_demo_submit\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> allowed_decision\nreadiness score: 100\nllm status: rules_only\nalerts:\n- "
     },
     {
       "eval_case_id": "oxygen_taxi_block",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: oxygen_transport_mismatch - oxygen need is incompatible with the selected transport type.\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
+      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: oxygen_transport_mismatch - oxygen need is incompatible with the selected transport type.\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
     },
     {
       "eval_case_id": "mobility_stairs_block",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: mobility_stairs_no_elevator - home discharge with stairs and no elevator is unsafe for current mobility.\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
+      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: mobility_stairs_no_elevator - home discharge with stairs and no elevator is unsafe for current mobility.\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
     },
     {
       "eval_case_id": "fall_risk_lives_alone_block",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> blocked_decision\nreadiness score: 30\nllm status: rules_only\nalerts:\n- block: fall_risk_lives_alone_no_caregiver - fall-risk patient living alone needs an available caregiver.\n- block: cognitive_lives_alone_no_home_health - cognitive risk with living alone requires home health support.\n- warn: equipment_or_service_gap - equipment or service orde"
+      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> blocked_decision\nreadiness score: 30\nllm status: rules_only\nalerts:\n- block: fall_risk_lives_alone_no_caregiver - fall-risk patient living alone needs an available caregiver at home.\n- block: cognitive_lives_alone_no_home_health - cognitive risk with living alone at home requires home health support.\n- warn: equipment_or_"
     },
     {
       "eval_case_id": "med_reconciliation_block",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: med_reconciliation_incomplete - medication reconciliation must be complete before discharge."
+      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: med_reconciliation_incomplete - medication reconciliation must be complete before discharge."
     },
     {
       "eval_case_id": "missing_signature_block",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: missing_physician_signature - physician signature is required before final discharge."
+      "response_excerpt": "decision: blocked\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> blocked_decision\nreadiness score: 59\nllm status: rules_only\nalerts:\n- block: missing_physician_signature - physician signature is required before final discharge."
     },
     {
       "eval_case_id": "warn_only_followup",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: warn_confirmation\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> warn_confirmation_decision\nreadiness score: 80\nllm status: rules_only\nalerts:\n- warn: followup_not_booked - follow-up is specified but not booked.\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
+      "response_excerpt": "decision: warn_confirmation\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> warn_confirmation_decision\nreadiness score: 80\nllm status: rules_only\nalerts:\n- warn: followup_not_booked - follow-up is specified but not booked.\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
     },
     {
       "eval_case_id": "prompt_injection_security",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: human_review_required\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> human_review_required\nreadiness score: 0\nllm status: unavailable\nalerts:\n- \nsecurity events:\n- prompt-injection text detected in user-entered form data."
+      "response_excerpt": "decision: human_review_required\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> human_review_required\nreadiness score: 0\nllm status: unavailable\nalerts:\n- \nsecurity events:\n- prompt-injection text detected in user-entered form data."
     },
     {
       "eval_case_id": "pii_redaction_security",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: allow_demo_submit\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> allowed_decision\nreadiness score: 100\nllm status: rules_only\nalerts:\n- "
+      "response_excerpt": "decision: allow_demo_submit\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> allowed_decision\nreadiness score: 100\nllm status: rules_only\nalerts:\n- "
     },
     {
       "eval_case_id": "unknown_patient",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: human_review_required\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> human_review_required\nreadiness score: 0\nllm status: unavailable\nalerts:\n- \nsecurity events:\n- schema check failed. malformed input."
+      "response_excerpt": "decision: human_review_required\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> human_review_required\nreadiness score: 0\nllm status: unavailable\nalerts:\n- \nsecurity events:\n- schema check failed. malformed input."
     },
     {
       "eval_case_id": "malformed_payload",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: human_review_required\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> human_review_required\nreadiness score: 0\nllm status: unavailable\nalerts:\n- \nsecurity events:\n- schema check failed. malformed input."
+      "response_excerpt": "decision: human_review_required\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> human_review_required\nreadiness score: 0\nllm status: unavailable\nalerts:\n- \nsecurity events:\n- schema check failed. malformed input."
     },
     {
       "eval_case_id": "equipment_gap_warn",
       "score": 1.0,
       "passed": true,
-      "response_excerpt": "decision: warn_confirmation\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> deterministic_router -> warn_confirmation_decision\nreadiness score: 84\nllm status: rules_only\nalerts:\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
+      "response_excerpt": "decision: warn_confirmation\nworkflow path: parse_discharge_event -> local_schema_check -> security_screen -> deterministic_safety_review -> llm_advisory_review -> deterministic_router -> warn_confirmation_decision\nreadiness score: 84\nllm status: rules_only\nalerts:\n- warn: equipment_or_service_gap - equipment or service orders do not match mobility or oxygen needs."
     }
   ],
   "note": "Offline deterministic grader. agents-cli eval grade requires Google ADC in this environment."

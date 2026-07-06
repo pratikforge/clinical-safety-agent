@@ -1,1 +1,0 @@
-{"action":"evaluate","args":{"code":"\n(() => {\n  const btns = Array.from(document.querySelectorAll('button'));\n  const reviewBtn = btns.find(b => b.textContent.includes('Review Discharge'));\n  if (reviewBtn) {\n    reviewBtn.click();\n    return \"Clicked Review\";\n  }\n  return \"Review button not found\";\n})()\n"},"session":"tricky_01_almost_safe_eleanor"}

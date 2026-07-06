@@ -1,7 +1,0 @@
-{
-  "action": "evaluate",
-  "args": {
-    "code": "(() => { Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Review Discharge')).click(); return 'clicked'; })()"
-  },
-  "session": "tricky_05_pii_smuggled_in_caregiver_field"
-}

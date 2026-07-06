@@ -68,4 +68,3 @@ class AgentDecision(BaseModel):
     securityEvents: list[str] = Field(default_factory=list)
     llmStatus: str
     workflowPath: list[str] = Field(default_factory=list)
-

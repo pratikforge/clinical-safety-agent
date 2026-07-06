@@ -1,8 +1,0 @@
-{
-  "action": "fill",
-  "args": {
-    "selector": "@e1",
-    "value": "MRN-100"
-  },
-  "session": "tricky_05_pii_smuggled_in_caregiver_field"
-}

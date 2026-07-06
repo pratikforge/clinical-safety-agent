@@ -1,7 +1,0 @@
-{
-  "action": "evaluate",
-  "args": {
-    "code": "(() => { Array.from(document.querySelectorAll('button')).find(b => b.textContent.includes('Review Discharge')).click(); return 'clicked'; })()"
-  },
-  "session": "tricky_06_unicode_injection_attempt"
-}

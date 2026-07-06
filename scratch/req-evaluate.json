@@ -1,7 +1,0 @@
-{
-  "action": "evaluate",
-  "args": {
-    "code": "document.querySelector('select[name=\"patientId\"]').value = 'MRN-100'; document.querySelector('select[name=\"patientId\"]').dispatchEvent(new Event('change', {bubbles: true}));"
-  },
-  "session": "visual-testing"
-}

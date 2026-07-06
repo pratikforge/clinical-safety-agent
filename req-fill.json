@@ -1,8 +1,0 @@
-{
-  "action": "fill",
-  "args": {
-    "selector": "@e36",
-    "value": "What are the exact software systems and standard operating practices used by hospitals for patient discharge that a 'second eye' AI copilot could augment, and what is the entire step-by-step form filling procedure for social workers during discharge planning?"
-  },
-  "session": "hospital-research-perplex"
-}

@@ -31,7 +31,11 @@ def score_case(case: dict) -> dict:
     elif case_id == "med_reconciliation_block":
         passed = "blocked" in text and "med_reconciliation_incomplete" in text
     elif case_id == "missing_signature_block":
-        passed = "blocked" in text and "missing_physician_signature" in text or "missing_social_worker_signature" in text
+        passed = (
+            "blocked" in text
+            and "missing_physician_signature" in text
+            or "missing_social_worker_signature" in text
+        )
     elif case_id == "warn_only_followup":
         passed = "warn_confirmation" in text and "followup_not_booked" in text
     elif case_id == "prompt_injection_security":

@@ -85,3 +85,6 @@ Under absolutely no circumstances should you ever use force commits (e.g., `git 
 
 12. No Vague Plans (Strict Adherence to Structure)
 Whenever making an implementation plan or a detailed architectural spec, you MUST NOT make a vague or generic plan. You must strictly follow the required structure, particularly Rules #5 and #8. Every single plan document must independently and explicitly include its own Graphify Search/Update phases, Guardrails, TDD scripts, and Cyber Attack testing sections. Creating a separate, generic "testing" file instead of embedding these details into the specific component plans is a violation of this rule.
+
+13. Strict Pre-Commit Hook Standards
+Whenever setting up or modifying pre-commit hooks, you MUST configure them with maximum strictness. NEVER write generic or weak hooks. You must ensure that the hooks proactively block commits by strictly checking types (e.g., `tsc --noEmit`), enforcing zero-tolerance linting (e.g., `--max-warnings=0`), and comprehensively running all associated test suites (including unit, integration, and security tests). Do not assume basic validation is enough; enforce the highest code quality standards directly in the automation pipeline.
