@@ -75,4 +75,4 @@ All plans and procedures must adhere to "TEST DRIVEN DEVELOPMENT". This means yo
 For cyber attack test scripts, refer to the STRIDE framework, OWASP Top 10, and other established frameworks. Do not accumulate the explanations of these frameworks in this file to avoid context rot; instead, utilize the `cyber-security-frameworks` skill.
 
 9. Error Logging and Continuous Learning
-Whenever you make a mistake or encounter an error during execution, you MUST log the mistake in `telemetry/error_log.md`. Include a description of the error and the exact procedure or code that caused it. This creates a dataset of failures that we will use to dynamically update these rules and prevent future recurrence.
+Whenever you make a mistake or encounter an error during execution, you MUST log the mistake in `telemetry/error_log.md`. Include a description of the error and the exact procedure or code that caused it. Immediately after logging the error, you MUST dynamically update this `AGENTS.md` file by explicitly writing a new rule or instruction detailing the mistake and exactly what to avoid doing in the future to prevent recurrence.
