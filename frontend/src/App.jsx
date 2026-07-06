@@ -29,7 +29,8 @@ function AppContent() {
 
   const handlePointerMove = (e) => {
     if (!dragRef.current) return;
-    setTriggerY(e.clientY);
+    const clampedY = Math.max(24, Math.min(e.clientY, window.innerHeight - 24));
+    setTriggerY(clampedY);
   };
 
   const handlePointerUp = (e) => {
