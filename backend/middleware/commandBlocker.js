@@ -5,6 +5,8 @@
  * before they are processed by the LLM or backend systems.
  */
 
+const logger = require("../utils/logger");
+
 function commandBlocker() {
   return function (req, res, next) {
     if (!req.body) {
@@ -36,7 +38,7 @@ function commandBlocker() {
 
     for (const pattern of dangerousPatterns) {
       if (pattern.test(payload)) {
-        console.warn(`[SECURITY_ALERT] Command injection blocked from IP ${req.ip}. Pattern matched: ${pattern}`);
+        logger.warn(`[SECURITY_ALERT] Command injection blocked from IP ${req.ip}. Pattern matched: ${pattern}`);
         return res.status(403).json({
           error: "Security violation: Blocked command pattern detected.",
           code: "COMMAND_INJECTION_BLOCKED"

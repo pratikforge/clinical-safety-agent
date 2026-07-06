@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import re
 from typing import Any
 
@@ -11,6 +12,9 @@ from google.genai import types
 
 from discharge_agent.schemas import AgentDecision, ReviewRequest
 from discharge_agent.tools import scrub_discharge_payload, validate_discharge_plan
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+logger = logging.getLogger("discharge_agent")
 
 
 def _base_form(overrides: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -51,17 +55,22 @@ def _text_from_start(node_input: Any) -> str:
 
 
 def parse_discharge_event(node_input: Any) -> dict[str, Any]:
+    logger.info("Received new discharge event parsing request.")
     text = _text_from_start(node_input)
     json_match = re.search(r"\{.*\}", text, flags=re.DOTALL)
     if json_match:
         try:
             candidate = json.loads(json_match.group(0))
             if "patientId" in candidate and "formData" in candidate:
+                logger.info(
+                    f"Successfully extracted structured form data for {candidate['patientId']}"
+                )
                 merged_form = _base_form(candidate["formData"])
                 candidate["formData"] = merged_form
                 req = ReviewRequest(**candidate).model_dump()
                 return {**req, "workflowPath": ["parse_discharge_event"]}
         except Exception:
+            logger.warning("Failed to parse extracted JSON block.")
             pass
 
     if text.strip().startswith("{"):
@@ -258,7 +267,9 @@ def deterministic_router(node_input: dict[str, Any]):
     path.append("deterministic_router")
     node_input["workflowPath"] = path
 
+    logger.info("Executing deterministic router decision logic.")
     if node_input.get("schemaError"):
+        logger.warning("Schema check failed, routing to human review.")
         yield from human_review_required(node_input)
         return
 
@@ -267,12 +278,16 @@ def deterministic_router(node_input: dict[str, Any]):
     summary = val.get("summary", {})
 
     if sec_events:
+        logger.warning(f"Security events detected: {sec_events}. Routing to human review.")
         yield from human_review_required(node_input)
     elif summary.get("blockCount", 0) > 0:
+        logger.info("Validation blocked. Routing to blocked decision.")
         yield from blocked_decision(node_input)
     elif summary.get("warnCount", 0) > 0:
+        logger.info("Validation warnings found. Routing to warn confirmation.")
         yield from warn_confirmation_decision(node_input)
     else:
+        logger.info("Validation passed clean. Routing to allowed decision.")
         yield from allowed_decision(node_input)
 
 

@@ -67,14 +67,15 @@ describe("Payload size limit (OWASP O-3)", () => {
 
 // ─── S-2: Audit Log Assertion (STRIDE → Repudiation / OWASP #9) ─────
 describe("Request audit logging (STRIDE S-2 / OWASP #9)", () => {
-  let consoleSpy;
+  const logger = require("../utils/logger");
+  let loggerSpy;
 
   beforeEach(() => {
-    consoleSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+    loggerSpy = jest.spyOn(logger, "info").mockImplementation(() => {});
   });
 
   afterEach(() => {
-    consoleSpy.mockRestore();
+    loggerSpy.mockRestore();
   });
 
   test("successful request is logged with requestId and status", async () => {
@@ -84,13 +85,12 @@ describe("Request audit logging (STRIDE S-2 / OWASP #9)", () => {
       .send(validRequest())
       .expect(200);
 
-    const logEntries = consoleSpy.mock.calls.map(call => call[0]);
-    const logEntry = logEntries.find(entry =>
-      typeof entry === "string" && entry.includes('"status":200')
+    const logCall = loggerSpy.mock.calls.find(call => 
+      call[1] && call[1].status === 200
     );
-    expect(logEntry).toBeDefined();
-    // Verify the log entry contains a requestId
-    const parsed = JSON.parse(logEntry);
+    expect(logCall).toBeDefined();
+    
+    const parsed = logCall[1];
     expect(parsed.requestId).toBeDefined();
     expect(parsed.status).toBe(200);
     expect(parsed.method).toBe("POST");
@@ -103,12 +103,12 @@ describe("Request audit logging (STRIDE S-2 / OWASP #9)", () => {
       .send(validRequest({ patientId: "MRN-NONEXISTENT" }))
       .expect(404);
 
-    const logEntries = consoleSpy.mock.calls.map(call => call[0]);
-    const logEntry = logEntries.find(entry =>
-      typeof entry === "string" && entry.includes('"status":404')
+    const logCall = loggerSpy.mock.calls.find(call => 
+      call[1] && call[1].status === 404
     );
-    expect(logEntry).toBeDefined();
-    const parsed = JSON.parse(logEntry);
+    expect(logCall).toBeDefined();
+    
+    const parsed = logCall[1];
     expect(parsed.requestId).toBeDefined();
     expect(parsed.status).toBe(404);
   });
