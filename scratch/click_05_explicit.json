@@ -1,0 +1,7 @@
+{
+  "action": "click",
+  "args": {
+    "selector": "@e57"
+  },
+  "session": "tricky_05_pii_smuggled_in_caregiver_field"
+}

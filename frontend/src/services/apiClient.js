@@ -1,10 +1,10 @@
 const API_ORIGIN = import.meta.env.VITE_API_ORIGIN || "http://localhost:3001";
 
-export async function validateDischarge({ clientRequestId, patientId, formData, signal }) {
+export async function validateDischarge({ clientRequestId, patientId, formData, overrideBlock, overrideAdminId, overrideReason, signal }) {
   const response = await fetch(`${API_ORIGIN}/api/validate-discharge`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ clientRequestId, patientId, formData }),
+    body: JSON.stringify({ clientRequestId, patientId, formData, overrideBlock, overrideAdminId, overrideReason }),
     signal
   });
 

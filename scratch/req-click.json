@@ -1,0 +1,7 @@
+{
+  "action": "click",
+  "args": {
+    "selector": "@e57"
+  },
+  "session": "visual-testing"
+}

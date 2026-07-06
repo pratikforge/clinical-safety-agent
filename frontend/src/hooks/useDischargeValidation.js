@@ -11,7 +11,7 @@ export function useDischargeValidation() {
   const debouncedHash = useDebounce(formHash, 700);
 
   const startReview = useCallback(
-    async ({ manual = false } = {}) => {
+    async ({ manual = false, override = false } = {}) => {
       if (!state.selectedPatientId || !state.localValidation.isCompleteEnoughForReview) return;
       if (abortRef.current) abortRef.current.abort();
       const controller = new AbortController();
@@ -25,6 +25,9 @@ export function useDischargeValidation() {
           clientRequestId,
           patientId: state.selectedPatientId,
           formData: state.formData,
+          overrideBlock: override,
+          overrideAdminId: override ? state.uiState.overrideAdminId : undefined,
+          overrideReason: override ? state.uiState.overrideReason : undefined,
           signal: controller.signal
         });
         if (result.requestId !== clientRequestId) return;

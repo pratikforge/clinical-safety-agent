@@ -47,8 +47,17 @@ function createValidationController(env, dependencies = {}) {
       const summary = summarizeAlerts(alerts);
       
       let agentDecision = "allow_demo_submit";
-      if (summary.blockCount > 0) agentDecision = "blocked";
-      else if (summary.warnCount > 0) agentDecision = "warn_confirmation";
+      if (summary.blockCount > 0) {
+        if (parsed.data.overrideBlock) {
+          const doctorSignature = parsed.data.formData.physicianSignature ? "Signed" : "Unsigned";
+          console.log(`[AUDIT_LOG] [${new Date().toISOString()}] Admin ${parsed.data.overrideAdminId || "UNKNOWN"} overrode BLOCK on discharge plan for Patient ${patientId} (Authorized by doc signature: ${doctorSignature}). Reason: ${parsed.data.overrideReason || "No reason provided"}`);
+          agentDecision = "overridden_block";
+        } else {
+          agentDecision = "blocked";
+        }
+      } else if (summary.warnCount > 0) {
+        agentDecision = "warn_confirmation";
+      }
       
       let agentMode = env.ALLOW_RULES_ONLY ? "rules_only" : "advisory_llm";
       

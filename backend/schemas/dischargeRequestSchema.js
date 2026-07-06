@@ -34,7 +34,10 @@ const formDataSchema = z.object({
 const dischargeRequestSchema = z.object({
   clientRequestId: z.string().min(1),
   patientId: z.string().min(1),
-  formData: formDataSchema
+  formData: formDataSchema,
+  overrideBlock: z.boolean().optional(),
+  overrideAdminId: z.string().optional(),
+  overrideReason: z.string().optional()
 });
 
 function formatZodDetails(error) {

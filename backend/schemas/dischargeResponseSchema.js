@@ -21,7 +21,7 @@ const dischargeResponseSchema = z.object({
     unresolvedRiskCount: z.number()
   }),
   workflowPath: z.array(z.string()).optional(),
-  agentDecision: z.enum(["allow_demo_submit", "blocked", "warn_confirmation", "human_review_required"]).optional(),
+  agentDecision: z.enum(["allow_demo_submit", "blocked", "warn_confirmation", "human_review_required", "overridden_block"]).optional(),
   securityEvents: z.array(z.string()).optional(),
   agentMode: z.enum(["rules_only", "advisory_llm", "human_review_required"]).optional()
 });

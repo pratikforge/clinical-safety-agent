@@ -1,0 +1,7 @@
+{
+  "action": "evaluate",
+  "args": {
+    "code": "(() => { return document.querySelector('select[name=\"Patient Search\"]')?.value || document.querySelector('select')?.value || 'not found'; })()"
+  },
+  "session": "tricky_05_pii_smuggled_in_caregiver_field"
+}

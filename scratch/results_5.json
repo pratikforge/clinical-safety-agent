@@ -1,0 +1,14 @@
+{
+  "tricky_09_social_worker_sig_missing_among_perfection": {
+    "blocks": 1,
+    "warnings": 0,
+    "alerts": ["MISSING_SOCIAL_WORKER_SIGNATURE"],
+    "expected_outcome_matched": true
+  },
+  "tricky_10_apixaban_in_free_text_tier4_catch": {
+    "blocks": 0,
+    "warnings": 1,
+    "alerts": ["HIGH_TIER_MED_INSURANCE_UNVERIFIED"],
+    "expected_outcome_matched": true
+  }
+}

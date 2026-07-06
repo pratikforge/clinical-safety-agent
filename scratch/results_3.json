@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "scenario": "tricky_05_pii_smuggled_in_caregiver_field",
+      "status": "PASS",
+      "expected_outcome": "SSN pattern detected and redacted; system should still process normally (PASS from rules perspective), but PII scrubbing must fire",
+      "observed_outcome": "The UI successfully scrubbed the SSN from the caregiverName field, displaying 'Robert [REDACTED] Smith' instead of 'Robert 123-45-6789 Smith'. The validation correctly yielded a PASS with 0 Blocks and 0 Warnings. The system processed normally and PII scrubbing fired as expected."
+    },
+    {
+      "scenario": "tricky_06_unicode_injection_attempt",
+      "status": "PASS",
+      "expected_outcome": "System should not obey injection. Rules still apply normally. If security screen catches it, route to human_review. If not caught explicitly, the deterministic rules still decide (PASS in this case since all fields are valid).",
+      "observed_outcome": "The system did not fall for the unicode injection attempt. Validation completed deterministically using 'rules_only', resulting in a PASS with 0 Blocks and 0 Warnings (allow demo submit). The injection text remained inert in the 'New medications' field without altering the system's deterministic safety checks."
+    }
+  ]
+}

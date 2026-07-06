@@ -1,0 +1,9 @@
+{
+  "action": "navigate",
+  "args": {
+    "url": "http://localhost:5173",
+    "newTab": true,
+    "group_title": "tricky_06"
+  },
+  "session": "tricky_06_unicode_injection_attempt"
+}

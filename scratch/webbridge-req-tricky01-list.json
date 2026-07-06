@@ -1,0 +1,1 @@
+{"action":"evaluate","args":{"code":"\n(() => {\n  const inputs = Array.from(document.querySelectorAll('input, select, textarea'));\n  return inputs.map(i => ({ \n    tagName: i.tagName, \n    name: i.name || '', \n    id: i.id || '', \n    type: i.type || '', \n    ariaLabel: i.getAttribute('aria-label') || '' \n  }));\n})()\n"},"session":"tricky_01_almost_safe_eleanor"}

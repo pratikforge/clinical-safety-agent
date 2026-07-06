@@ -41,7 +41,10 @@ function createInitialState() {
       submissionBlocked: false,
       submitAttempted: false,
       warnConfirmationPending: false,
-      submitted: false
+      submitted: false,
+      overrideActive: false,
+      overrideAdminId: "",
+      overrideReason: ""
     }
   };
 }
@@ -110,6 +113,12 @@ function reducer(state, action) {
       }
       return { ...state, uiState: { ...state.uiState, submitAttempted: true, warnConfirmationPending: false, submitted: true } };
     }
+    case "initiateOverride":
+      return { ...state, uiState: { ...state.uiState, overrideActive: true } };
+    case "cancelOverride":
+      return { ...state, uiState: { ...state.uiState, overrideActive: false, overrideAdminId: "", overrideReason: "" } };
+    case "updateOverrideMetadata":
+      return { ...state, uiState: { ...state.uiState, [action.field]: action.value } };
     default:
       return state;
   }

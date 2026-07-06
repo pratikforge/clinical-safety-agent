@@ -1,0 +1,7 @@
+{
+  "action": "evaluate",
+  "args": {
+    "code": "(() => { const sel = document.querySelector('select'); sel.value = 'MRN-100'; sel.dispatchEvent(new Event('change', { bubbles: true })); return sel.value; })()"
+  },
+  "session": "tricky_05_pii_smuggled_in_caregiver_field"
+}

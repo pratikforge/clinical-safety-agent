@@ -1,0 +1,9 @@
+{
+  "action": "navigate",
+  "args": {
+    "url": "http://localhost:5173",
+    "newTab": true,
+    "group_title": "tricky_05"
+  },
+  "session": "tricky_05_pii_smuggled_in_caregiver_field"
+}
