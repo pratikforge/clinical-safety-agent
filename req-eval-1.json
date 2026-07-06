@@ -1,0 +1,7 @@
+{
+  "action": "evaluate",
+  "args": {
+    "code": "(() => { return Array.from(document.querySelectorAll('a.title')).map(el => el.innerText); })()"
+  },
+  "session": "business-ideas"
+}

@@ -1,0 +1,8 @@
+{
+  "action": "navigate",
+  "args": {
+    "url": "https://old.reddit.com/r/smallbusiness/search?q=biggest+problem&restrict_sr=on&sort=relevance&t=all",
+    "newTab": false
+  },
+  "session": "business-ideas"
+}

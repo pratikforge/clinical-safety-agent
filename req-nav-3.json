@@ -1,0 +1,8 @@
+{
+  "action": "navigate",
+  "args": {
+    "url": "https://old.reddit.com/r/smallbusiness/comments/1regd3z/i_talked_to_200_service_business_owners_about/",
+    "newTab": false
+  },
+  "session": "business-ideas"
+}

@@ -1,0 +1,7 @@
+{
+  "action": "evaluate",
+  "args": {
+    "code": "(() => { const el = document.querySelector('.top-matter .usertext-body'); return el ? el.innerText : ''; })()"
+  },
+  "session": "business-ideas"
+}

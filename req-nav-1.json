@@ -1,0 +1,9 @@
+{
+  "action": "navigate",
+  "args": {
+    "url": "https://old.reddit.com/r/Entrepreneur/top/?sort=top&t=month",
+    "newTab": true,
+    "group_title": "Business Problems Search"
+  },
+  "session": "business-ideas"
+}

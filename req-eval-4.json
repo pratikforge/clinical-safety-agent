@@ -1,0 +1,7 @@
+{
+  "action": "evaluate",
+  "args": {
+    "code": "(() => { const el = document.querySelector('.entry .md'); return el ? el.innerText : ''; })()"
+  },
+  "session": "business-ideas"
+}
