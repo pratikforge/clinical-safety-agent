@@ -1,70 +1,78 @@
-/* LEGACY EHR AESTHETIC REDESIGN */
+/* MODERN ENTERPRISE EHR AESTHETIC (Epic Hyperdrive / Cerner Ignite Style) */
 
 .ehr-workspace {
   height: 100vh;
   overflow-y: auto;
-  padding: 8px;
-  background-color: #e8eaeb; /* Classic Windows/Enterprise gray background */
-  font-family: Tahoma, Arial, sans-serif;
-  font-size: 12px;
-  color: #000000;
+  padding: 1rem;
+  background-color: #f3f4f6; /* Modern light gray app background */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px; /* Dense but readable */
+  color: #1f2937;
+}
+
+/* Base card styles for sections */
+.patient-header,
+.discharge-form fieldset {
+  background: #ffffff;
+  border: 1px solid #d1d5db; /* Clean light gray border */
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Very subtle modern shadow */
 }
 
 /* Patient Header block */
 .patient-header {
-  background: #ffffff;
-  border: 1px solid #888888;
-  margin-top: 8px;
-  padding: 6px 8px;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  box-shadow: inset 1px 1px 0px #ffffff, 1px 1px 2px rgba(0,0,0,0.1); /* Subtle 3D effect */
+  gap: 0.75rem;
 }
 
 .patient-header .label {
   display: block;
-  color: #333333;
-  font-size: 11px;
-  font-weight: bold;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 .patient-header strong {
   display: block;
-  font-size: 13px;
-  color: #000080; /* Navy blue data */
-  margin-top: 2px;
+  font-size: 14px;
+  color: #111827; 
+  margin-top: 0.2rem;
 }
 
 .patient-header p {
   grid-column: 1 / -1;
-  margin: 4px 0 0;
-  color: #555555;
-  font-size: 11px;
+  margin: 0.5rem 0 0;
+  color: #4b5563;
+  font-size: 13px;
 }
 
 /* Patient Selector */
 .patient-selector {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
-  background: #d4d0c8; /* Classic Win95 gray */
-  border: 1px solid #888888;
-  border-top-color: #ffffff;
-  border-left-color: #ffffff;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
 }
 .patient-selector label {
-  font-weight: bold;
-  font-size: 12px;
+  font-weight: 600;
+  color: #111827;
+  font-size: 13px;
 }
 
 /* Forms */
 .discharge-form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px;
-  margin-top: 8px;
+  gap: 1rem; /* Good spacing between major blocks */
+  margin-top: 1rem;
 }
 
 .discharge-form fieldset {
@@ -72,107 +80,117 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: start;
   align-items: start;
-  gap: 6px 12px; /* tighter rows, standard columns */
+  gap: 0.5rem 1rem; /* Dense rows (8px), standard columns (16px) */
   margin: 0;
-  padding: 24px 8px 8px 8px; /* Room for absolute legend */
+  padding: 1rem;
   min-width: 0;
-  background: #ffffff;
-  border: 1px solid #a0a0a0;
-  position: relative;
 }
 
 .discharge-form legend {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #3b6ea5; /* Legacy title bar blue */
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 11px;
-  padding: 3px 6px;
-  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1e40af; /* Modern enterprise blue for headers */
+  padding: 0;
+  margin-bottom: 0.5rem;
   width: 100%;
-  box-sizing: border-box;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.25rem;
 }
 
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.25rem; /* 4px gap between label and input */
   min-width: 0;
 }
 
 .form-field label,
 .check-row {
-  color: #000000;
-  font-size: 11px;
-  font-weight: normal; /* Classic systems often use normal weight for labels, bold for headers */
+  color: #374151;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-/* Tightly packed inputs */
+/* Inputs */
 .form-field input,
 .form-field select,
 .form-field textarea,
 .patient-selector select {
   width: 100%;
-  border: 1px solid #7f9db9; /* Classic IE input border */
-  border-radius: 0px;
-  padding: 2px 4px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
   background: #ffffff;
-  color: #000000;
-  font-family: Tahoma, Arial, sans-serif;
-  font-size: 12px;
-  height: 22px; /* Fixed height for inputs/selects */
+  color: #111827;
+  font-family: inherit;
+  font-size: 13px;
+  height: 30px; /* Modern dense height */
   box-sizing: border-box;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
 }
 
 .form-field textarea {
   height: auto;
-  min-height: 40px;
+  min-height: 60px;
   resize: vertical;
 }
 
 .form-field select[multiple] {
   height: auto;
-  min-height: 60px;
+  min-height: 80px;
+  padding: 0.25rem;
+}
+
+.form-field select[multiple] option {
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
 }
 
 .check-row {
   display: flex;
   align-items: center;
-  gap: 4px;
-  min-height: 22px;
+  gap: 0.35rem;
+  min-height: 30px; /* Align with inputs */
 }
 
 .check-row input[type="checkbox"] {
   margin: 0;
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
+  accent-color: #2563eb;
 }
 
+/* Grouping utilities from previous fix */
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.25rem;
 }
 
 .checkbox-group-row {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 1.5rem;
   grid-column: 1 / -1;
   flex-wrap: wrap;
 }
 
 .field-error {
-  color: #cc0000;
-  font-size: 10px;
-  font-weight: bold;
+  color: #dc2626;
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 1px;
 }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .discharge-form {
     grid-template-columns: 1fr;
@@ -183,7 +201,7 @@
   .ehr-workspace {
     height: auto;
     overflow: visible;
-    padding: 6px;
+    padding: 0.75rem;
   }
 
   .patient-header,
