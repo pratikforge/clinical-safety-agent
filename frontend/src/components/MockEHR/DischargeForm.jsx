@@ -42,10 +42,12 @@ export default function DischargeForm() {
             {FIELD_OPTIONS.stairsAtHome.map((option) => <option key={option}>{option}</option>)}
           </select>
         </Field>
-        <label className="check-row" htmlFor="livesAlone">
-          <input id="livesAlone" type="checkbox" checked={formData.livesAlone} onChange={(event) => setField("livesAlone", event.target.checked)} />
-          Lives alone
-        </label>
+        <Field id="livesAlone" label=" ">
+          <label className="check-row" htmlFor="livesAlone">
+            <input id="livesAlone" type="checkbox" checked={formData.livesAlone} onChange={(event) => setField("livesAlone", event.target.checked)} />
+            Lives alone
+          </label>
+        </Field>
       </fieldset>
 
       <fieldset>
@@ -64,50 +66,58 @@ export default function DischargeForm() {
             {FIELD_OPTIONS.transportType.map((option) => <option key={option}>{option}</option>)}
           </select>
         </Field>
-        <label className="check-row" htmlFor="caregiverAvailableOnDischarge">
-          <input id="caregiverAvailableOnDischarge" type="checkbox" checked={formData.caregiverAvailableOnDischarge} onChange={(event) => setField("caregiverAvailableOnDischarge", event.target.checked)} />
-          Caregiver available on discharge
-        </label>
+        <Field id="caregiverAvailableOnDischarge" label=" ">
+          <label className="check-row" htmlFor="caregiverAvailableOnDischarge">
+            <input id="caregiverAvailableOnDischarge" type="checkbox" checked={formData.caregiverAvailableOnDischarge} onChange={(event) => setField("caregiverAvailableOnDischarge", event.target.checked)} />
+            Caregiver available on discharge
+          </label>
+        </Field>
       </fieldset>
 
       <fieldset>
         <legend>Medication and Follow-Up</legend>
-        <label className="check-row" htmlFor="medicationReconciliationComplete">
-          <input id="medicationReconciliationComplete" type="checkbox" checked={formData.medicationReconciliationComplete} onChange={(event) => setField("medicationReconciliationComplete", event.target.checked)} />
-          Medication reconciliation complete
-        </label>
-        <label className="check-row" htmlFor="insuranceVerified">
-          <input id="insuranceVerified" type="checkbox" checked={formData.insuranceVerified} onChange={(event) => setField("insuranceVerified", event.target.checked)} />
-          Insurance verified
-        </label>
+        <div className="checkbox-group-row">
+          <label className="check-row" htmlFor="medicationReconciliationComplete">
+            <input id="medicationReconciliationComplete" type="checkbox" checked={formData.medicationReconciliationComplete} onChange={(event) => setField("medicationReconciliationComplete", event.target.checked)} />
+            Medication reconciliation complete
+          </label>
+          <label className="check-row" htmlFor="insuranceVerified">
+            <input id="insuranceVerified" type="checkbox" checked={formData.insuranceVerified} onChange={(event) => setField("insuranceVerified", event.target.checked)} />
+            Insurance verified
+          </label>
+        </div>
         <Field id="newMedications" label="New medications">
-          <textarea id="newMedications" value={formData.newMedications} onChange={(event) => setField("newMedications", event.target.value)} />
+          <textarea id="newMedications" style={{ height: "100%", minHeight: "8rem" }} value={formData.newMedications} onChange={(event) => setField("newMedications", event.target.value)} />
         </Field>
-        <Field id="followUpType" label="Follow-up type">
-          <input id="followUpType" value={formData.followUpType} onChange={(event) => setField("followUpType", event.target.value)} />
-        </Field>
-        <Field id="followUpDate" label="Follow-up date">
-          <input id="followUpDate" type="date" value={formData.followUpDate} onChange={(event) => setField("followUpDate", event.target.value)} />
-        </Field>
-        <label className="check-row" htmlFor="followUpBooked">
-          <input id="followUpBooked" type="checkbox" checked={formData.followUpBooked} onChange={(event) => setField("followUpBooked", event.target.checked)} />
-          Follow-up booked
-        </label>
+        <div className="checkbox-group">
+          <Field id="followUpType" label="Follow-up type">
+            <input id="followUpType" value={formData.followUpType} onChange={(event) => setField("followUpType", event.target.value)} />
+          </Field>
+          <Field id="followUpDate" label="Follow-up date">
+            <input id="followUpDate" type="date" value={formData.followUpDate} onChange={(event) => setField("followUpDate", event.target.value)} />
+          </Field>
+          <label className="check-row" htmlFor="followUpBooked">
+            <input id="followUpBooked" type="checkbox" checked={formData.followUpBooked} onChange={(event) => setField("followUpBooked", event.target.checked)} />
+            Follow-up booked
+          </label>
+        </div>
       </fieldset>
 
       <fieldset>
         <legend>Equipment, Services, and Signatures</legend>
         <Field id="equipmentNeeded" label="Equipment needed">
-          <select id="equipmentNeeded" multiple value={formData.equipmentNeeded} onChange={(event) => setField("equipmentNeeded", Array.from(event.target.selectedOptions, (option) => option.value))}>
+          <select id="equipmentNeeded" multiple style={{ height: "100%", minHeight: "8rem" }} value={formData.equipmentNeeded} onChange={(event) => setField("equipmentNeeded", Array.from(event.target.selectedOptions, (option) => option.value))}>
             {FIELD_OPTIONS.equipmentNeeded.map((option) => <option key={option}>{option}</option>)}
           </select>
         </Field>
-        {["homeHealthOrdered", "communityServicesReferral", "physicianSignature", "socialWorkerSignature"].map((field) => (
-          <label className="check-row" htmlFor={field} key={field}>
-            <input id={field} type="checkbox" checked={formData[field]} onChange={(event) => setField(field, event.target.checked)} />
-            {field.replace(/([A-Z])/g, " $1").replace(/^./, (letter) => letter.toUpperCase())}
-          </label>
-        ))}
+        <div className="checkbox-group" style={{ marginTop: "1.25rem" }}>
+          {["homeHealthOrdered", "communityServicesReferral", "physicianSignature", "socialWorkerSignature"].map((field) => (
+            <label className="check-row" htmlFor={field} key={field}>
+              <input id={field} type="checkbox" checked={formData[field]} onChange={(event) => setField(field, event.target.checked)} />
+              {field.replace(/([A-Z])/g, " $1").replace(/^./, (letter) => letter.toUpperCase())}
+            </label>
+          ))}
+        </div>
       </fieldset>
     </form>
   );
