@@ -5,6 +5,7 @@ const { requestId } = require("./middleware/requestId");
 const { createRateLimiter } = require("./middleware/rateLimiter");
 const { requestLogger } = require("./middleware/requestLogger");
 const { errorHandler } = require("./middleware/errorHandler");
+const { commandBlocker } = require("./middleware/commandBlocker");
 const { createValidateDischargeRouter } = require("./routes/validateDischarge");
 
 function createApp(env, dependencies = {}) {
@@ -31,6 +32,7 @@ function createApp(env, dependencies = {}) {
   app.use(cors({ origin: env.FRONTEND_ORIGIN }));
   app.use("/api/validate-discharge", createRateLimiter(env));
   app.use(express.json({ limit: "100kb", strict: true }));
+  app.use(commandBlocker());
   app.use(requestLogger());
   app.use("/api/validate-discharge", createValidateDischargeRouter(env, dependencies));
   
