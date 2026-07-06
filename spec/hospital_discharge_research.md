@@ -1,46 +1,40 @@
-# Hospital Discharge Planning: Workflow & Software Research
-
-*This research document outlines the exact standard operating procedures (SOPs), legacy software systems, and data bottlenecks that hospital social workers face during patient transitions. This data serves as the foundation for our "Social Services Copilot" AI.*
-
----
+# Hospital Discharge Planning: Field-by-Field Spec & Workflow
+*(Research generated via Perplexity Deep Dive)*
 
 ## 1. The Incumbent Software Systems
-Hospitals do not use basic web forms; they rely on massive, monolithic Electronic Health Record (EHR) systems. The big three are:
-*   **Epic (Grand Central & EpicCare):** The industry leader. Features "Discharge Watchlists" and embedded capacity management.
-*   **Cerner (Oracle Health):** Uses the "PowerChart" interface to automate tasks and track active orders.
-*   **Allscripts (Altera):** Highly focused on multi-specialty interoperability.
+Hospitals use massive Electronic Health Records (EHRs) like **Epic (Grand Central)**, **Cerner (PowerChart)**, and **Allscripts**. While excellent at clinical data (labs, vitals), they are notoriously difficult for logistical and social data, forcing social workers to jump through 15+ tabs to verify a single discharge.
 
-**The Problem with Incumbents:** While these systems track *clinical* data (lab results, diagnoses) exceptionally well, they are famously clunky for *logistical and social* data. A social worker often has to open 15 different tabs within Epic just to verify a patient's housing address, their insurance status for an ambulance, and their ability to afford a new prescription.
+## 2. Field-by-Field Discharge Form Spec (For AI Copilot)
 
----
+An AI Copilot overlay should act as a "Second Eye," scanning the following required fields and applying validation logic before a discharge is finalized.
 
-## 2. The Social Worker's Step-by-Step Workflow
-While nurses handle IVs and doctors handle diagnoses, social workers are responsible for the **Social Determinants of Health (SDOH)**. If the patient fails here, they bounce back to the hospital.
+### A. Patient & Administrative Data
+- **Patient Identity:** Must match chart.
+- **Discharge Date & Status:** Must be filled and valid.
+- **Discharge Destination:** Crucial. The AI must cross-reference this destination (e.g., "Home") with the patient's mobility, oxygen needs, and caregiver status. 
+  - *AI Check:* If destination is "Home" but clinical notes say "requires 2-person assist for stairs" and patient lives in a 3rd-floor walk-up, AI escalates to Clinical Review.
 
-### Step 1: Early Assessment & Barrier Screening
-*   **Action:** The social worker reviews the intake forms the day the patient arrives.
-*   **Checks:** Does the patient have a home to go to? Do they have stairs they can't climb? Are they facing financial ruin?
-*   **Data Source:** Unstructured doctor's notes, intake SDOH questionnaires.
+### B. Medical & Medication Data
+- **Medication Reconciliation:** Ensure all prescribed drugs are affordable and accessible.
+  - *AI Check:* Scan for Tier 4/specialty drugs. Flag if no insurance verification is present.
+- **Follow-up Appointments:** Must be booked, not just recommended.
+  - *AI Check:* If "Cardiology Follow-up" is checked, AI searches for an actual calendar booking.
 
-### Step 2: Medication Reconciliation (The Deadliest Bottleneck)
-*   **Action:** While pharmacists ensure the clinical safety of the drug list, the social worker ensures *logistical reality*.
-*   **Checks:** Can the patient afford the $500/month blood thinner? If not, the social worker must find grant programs or switch the script.
-*   **The Error Risk:** If the social worker fails to notice a financial barrier buried in page 4 of a clinical note, the patient goes home, doesn't buy the medicine, and has another heart attack.
+### C. Social & Logistical Data
+- **Transportation:** Match transport type to clinical needs.
+  - *AI Check:* If patient requires 2L Oxygen, flag if standard taxi/Uber is booked instead of paratransit.
+- **Home Equipment & Services:** Wheelchairs, home nurses, etc.
+- **Caregiver Info:** Name, contact, and confirmation they are available.
 
-### Step 3: Transportation & Logistics Coordination
-*   **Action:** Organizing Non-Emergency Medical Transportation (NEMT).
-*   **Checks:** Is the patient on oxygen? If so, they cannot take an Uber; they need a specialized paratransit van. 
-*   **The Error Risk:** Copy-pasting the wrong receiving facility address, or booking a standard taxi for a wheelchair-bound patient.
+## 3. Recommended AI Control Logic
+1. **Block Finalization:** If identity, date, destination, medication reconciliation, or signature fields are incomplete.
+2. **Escalate to Social Work:** If patient needs transport, home equipment, or community services that are not confirmed.
+3. **Escalate to Clinical Review:** If discharge destination is home, but mobility, oxygen, or supervision needs are unaddressed.
+4. **Log Overrides:** Log every override so staff can audit why the copilot allowed a discharge despite a warning.
 
-### Step 4: The Final Transition Packet (Discharge Summary)
-*   **Action:** Compiling the "Transition of Care" document for the receiving facility (e.g., a rehab center).
-*   **Checks:** Ensuring all clinical instructions, medication lists, and follow-up appointments are perfectly aligned.
-
----
-
-## 3. Where Our AI Copilot Fits In
-The Copilot will not *replace* Epic or Cerner. Instead, it will be an **Ambient Overlay** (a SMART on FHIR app concept) that watches the social worker's workflow and cross-references data in real-time.
-
-*   **Feature A (SDOH Verification):** The social worker books an Uber. The AI flags: *"Warning: Dr. Smith's note states the patient requires 2L of Oxygen. An Uber cannot accommodate this. Switch to Paratransit."*
-*   **Feature B (Address Verification):** The AI cross-references the Discharge form against the original Intake form to catch copy-paste address errors.
-*   **Feature C (Medication Affordability):** The AI scans the discharge drug list, detects a Tier 4 specialty drug, and prompts the social worker to verify insurance coverage before the patient leaves the building.
+## 4. Optional "Second-Eye" Dashboards
+The Copilot should add derived AI fields to the UI:
+*   **Discharge Readiness Score**
+*   **Missing-Items Count**
+*   **Unresolved-Risk Count**
+*   **Safety Confidence Score** (Green/Yellow/Red status blocking only the highest-risk failures).
