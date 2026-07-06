@@ -61,7 +61,9 @@ function AppContent() {
           style={{ top: triggerY }}
           aria-label="Open Copilot"
         >
-          <ShieldCheck size={26} strokeWidth={2.5} color="#e0e7ff" />
+          <div className="brand-logo">
+            <ShieldCheck size={20} strokeWidth={2.5} color="#312e81" />
+          </div>
         </button>
       )}
     </div>

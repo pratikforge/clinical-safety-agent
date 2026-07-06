@@ -23,7 +23,7 @@ export default function SidebarContainer() {
         <div className="brand-header">
           <div className="brand-logo-group">
             <div className="brand-logo">
-              <ShieldCheck size={20} strokeWidth={2.5} color="#e0e7ff" />
+              <ShieldCheck size={20} strokeWidth={2.5} color="#312e81" />
             </div>
             <h1 className="brand-name">CUE</h1>
           </div>
