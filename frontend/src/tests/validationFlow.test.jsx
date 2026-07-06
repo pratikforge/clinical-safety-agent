@@ -2,7 +2,7 @@ import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, test, vi } from "vitest";
 import DischargeForm from "../components/MockEHR/DischargeForm.jsx";
-import ReviewControls from "../components/MockEHR/ReviewControls.jsx";
+import SidebarControls from "../components/CopilotSidebar/SidebarControls.jsx";
 import StatusBanner from "../components/common/StatusBanner.jsx";
 import { useDischargeValidation } from "../hooks/useDischargeValidation.js";
 import { renderWithProvider } from "./testUtils.jsx";
@@ -66,7 +66,7 @@ test("intentional cancellation does not show error banner", async () => {
     <>
       <StatusBanner />
       <DischargeForm />
-      <ReviewControls />
+      <SidebarControls />
     </>
   );
   await user.type(screen.getByLabelText(/Discharge date/i), "2026-07-07");

@@ -5,6 +5,7 @@ import AlertList from "./AlertList.jsx";
 import ReadinessScore from "./ReadinessScore.jsx";
 import SummaryMetrics from "./SummaryMetrics.jsx";
 import WorkflowPath from "./WorkflowPath.jsx";
+import SidebarControls from "./SidebarControls.jsx";
 
 export default function SidebarContainer() {
   const { state, dispatch } = useDischargeForm();
@@ -31,6 +32,7 @@ export default function SidebarContainer() {
       <WorkflowPath />
       <SummaryMetrics />
       <AlertList />
+      <SidebarControls />
     </aside>
   );
 }

@@ -37,7 +37,7 @@ function createInitialState() {
     validationResult: initialValidationResult,
     reviewState: initialReviewState,
     uiState: {
-      sidebarOpen: true,
+      sidebarOpen: false,
       submissionBlocked: false,
       submitAttempted: false,
       warnConfirmationPending: false,

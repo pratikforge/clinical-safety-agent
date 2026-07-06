@@ -2,7 +2,7 @@ import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, test, vi } from "vitest";
 import DischargeForm from "../components/MockEHR/DischargeForm.jsx";
-import ReviewControls from "../components/MockEHR/ReviewControls.jsx";
+import SidebarControls from "../components/CopilotSidebar/SidebarControls.jsx";
 import { renderWithProvider } from "./testUtils.jsx";
 
 afterEach(() => {
@@ -28,7 +28,7 @@ test("review request includes clientRequestId, patientId, and caregiverRelations
   renderWithProvider(
     <>
       <DischargeForm />
-      <ReviewControls />
+      <SidebarControls />
     </>
   );
 

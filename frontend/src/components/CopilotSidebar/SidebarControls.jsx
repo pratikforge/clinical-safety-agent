@@ -2,7 +2,7 @@ import { ShieldCheck, Send } from "lucide-react";
 import { useDischargeForm } from "../../context/DischargeFormContext.jsx";
 import { useDischargeValidation } from "../../hooks/useDischargeValidation.js";
 
-export default function ReviewControls() {
+export default function SidebarControls() {
   const { state, dispatch } = useDischargeForm();
   const { startReview } = useDischargeValidation();
   const blocked = state.uiState.submissionBlocked;
