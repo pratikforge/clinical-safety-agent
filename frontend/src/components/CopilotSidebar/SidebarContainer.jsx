@@ -21,7 +21,7 @@ export default function SidebarContainer() {
     <aside className={`copilot-sidebar ${state.uiState.sidebarOpen ? "is-open" : ""}`} aria-label="Copilot discharge safety sidebar">
       <header>
         <div>
-          <p>Social Services Copilot</p>
+          <p>CUE</p>
           <h2>Discharge Safety</h2>
           <span style={{ display: "block", marginTop: "0.75rem", fontSize: "0.85rem", color: "#e2e8f0", lineHeight: "1.4" }}>
             Ensure a safe transition of care. Verify clinical readiness, caregiver support, and compliance requirements before finalizing discharge.
