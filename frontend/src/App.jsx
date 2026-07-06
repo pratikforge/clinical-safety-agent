@@ -8,7 +8,7 @@ import ReviewControls from "./components/MockEHR/ReviewControls.jsx";
 import SidebarContainer from "./components/CopilotSidebar/SidebarContainer.jsx";
 
 function AppContent() {
-  const { state } = useDischargeForm();
+  const { state, dispatch } = useDischargeForm();
   return (
     <div className={`app-shell ${!state.uiState.sidebarOpen ? "sidebar-closed" : ""}`}>
       <main className="ehr-workspace" aria-label="Mock EHR discharge planner">
@@ -19,6 +19,11 @@ function AppContent() {
         <ReviewControls />
       </main>
       <SidebarContainer />
+      {!state.uiState.sidebarOpen && (
+        <button className="extension-trigger" onClick={() => dispatch({ type: "toggleSidebar", open: true })} aria-label="Open Copilot">
+          <span>C</span>
+        </button>
+      )}
     </div>
   );
 }

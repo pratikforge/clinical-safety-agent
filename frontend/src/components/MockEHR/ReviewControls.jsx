@@ -1,4 +1,4 @@
-import { ShieldCheck, Send, PanelRightOpen } from "lucide-react";
+import { ShieldCheck, Send } from "lucide-react";
 import { useDischargeForm } from "../../context/DischargeFormContext.jsx";
 import { useDischargeValidation } from "../../hooks/useDischargeValidation.js";
 
@@ -10,9 +10,6 @@ export default function ReviewControls() {
 
   return (
     <section className="review-controls" aria-label="Discharge review controls">
-      <button type="button" className="secondary-button" aria-expanded={state.uiState.sidebarOpen} onClick={() => dispatch({ type: "toggleSidebar", open: true })}>
-        <PanelRightOpen size={16} /> Copilot
-      </button>
       <button type="button" onClick={() => startReview({ manual: true })} disabled={validating || !state.localValidation.isCompleteEnoughForReview}>
         <ShieldCheck size={16} /> {validating ? "Reviewing" : "Review Discharge"}
       </button>
