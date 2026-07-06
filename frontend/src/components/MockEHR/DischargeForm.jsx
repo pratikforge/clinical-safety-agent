@@ -119,6 +119,12 @@ export default function DischargeForm() {
           ))}
         </div>
       </fieldset>
+      
+      <div className="ehr-submit-row">
+        <button type="button" className="ehr-submit-button" onClick={() => dispatch({ type: "submitAttempted" })}>
+          Sign & Submit Discharge
+        </button>
+      </div>
     </form>
   );
 }

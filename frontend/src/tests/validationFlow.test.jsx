@@ -71,6 +71,6 @@ test("intentional cancellation does not show error banner", async () => {
   );
   await user.type(screen.getByLabelText(/Discharge date/i), "2026-07-07");
   await user.type(screen.getByLabelText(/Destination address/i), "10 Demo Street");
-  await user.click(screen.getByRole("button", { name: /Review Discharge/i }));
+  await user.click(screen.getByRole("button", { name: /Run Safety Analysis/i }));
   await waitFor(() => expect(screen.queryByText(/unavailable/i)).not.toBeInTheDocument());
 });

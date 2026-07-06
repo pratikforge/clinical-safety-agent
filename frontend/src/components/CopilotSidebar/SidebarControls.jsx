@@ -10,15 +10,9 @@ export default function SidebarControls() {
 
   return (
     <section className="review-controls" aria-label="Discharge review controls">
-      <button type="button" onClick={() => startReview({ manual: true })} disabled={validating || !state.localValidation.isCompleteEnoughForReview}>
-        <ShieldCheck size={16} /> {validating ? "Reviewing" : "Review Discharge"}
+      <button type="button" className="primary-ai-btn" onClick={() => startReview({ manual: true })} disabled={validating || !state.localValidation.isCompleteEnoughForReview}>
+        <ShieldCheck size={16} /> {validating ? "Analyzing Safety..." : "Run Safety Analysis"}
       </button>
-      {!state.uiState.overrideActive && (
-        <button type="button" disabled={blocked} onClick={() => dispatch({ type: "submitAttempted" })}>
-          <Send size={16} /> Submit Discharge
-        </button>
-      )}
-      
       {blocked && !state.uiState.overrideActive && (
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginTop: "0.5rem" }}>
           {state.uiState.submitAttempted && <span className="field-error">Submission blocked by backend safety alerts.</span>}

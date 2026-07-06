@@ -35,7 +35,7 @@ test("review request includes clientRequestId, patientId, and caregiverRelations
   await user.type(screen.getByLabelText(/Discharge date/i), "2026-07-07");
   await user.type(screen.getByLabelText(/Destination address/i), "10 Demo Street");
   await user.type(screen.getByLabelText(/Caregiver relationship/i), "Adult child");
-  await user.click(screen.getByRole("button", { name: /Review Discharge/i }));
+  await user.click(screen.getByRole("button", { name: /Run Safety Analysis/i }));
 
   await waitFor(() => expect(global.fetch).toHaveBeenCalled());
   const body = JSON.parse(global.fetch.mock.calls[0][1].body);
