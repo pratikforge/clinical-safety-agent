@@ -2,42 +2,45 @@
 
 .copilot-sidebar {
   position: fixed;
-  top: 0;
-  right: -420px;
+  top: 1rem;
+  bottom: 1rem;
+  right: -440px;
   width: 420px; /* Slightly wider for premium feel */
-  height: 100vh;
+  height: calc(100vh - 2rem);
   overflow-y: auto;
-  border-left: 3px solid #6366f1; /* Distinct AI boundary */
+  border: 1px solid rgba(0,0,0,0.05);
   background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
   color: #1e293b;
   padding: 1.25rem;
   z-index: 9999;
   transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother spring transition */
-  box-shadow: -10px 0 30px rgba(0,0,0,0.12), -2px 0 10px rgba(79, 70, 229, 0.1); /* Stronger premium depth */
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15), 0 4px 15px rgba(79, 70, 229, 0.15); /* Strong premium depth */
   display: flex;
   flex-direction: column;
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
+  border-radius: 16px; /* Floating rounded panel */
 }
 
 .copilot-sidebar.is-open {
-  right: 0;
+  right: 1rem;
 }
 
-/* Header with subtle gradient */
+/* Header with subtle gradient slab */
 .copilot-sidebar header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #d1d5db; /* Matched EHR intensity */
+  margin: -1.25rem -1.25rem 1.5rem -1.25rem;
+  padding: 1.5rem 1.25rem;
+  background: linear-gradient(135deg, #1e293b 0%, #3730a3 100%);
+  border-radius: 16px 16px 0 0;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
 .copilot-sidebar header p {
   margin: 0;
-  color: #6366f1; /* Indigo AI branding */
+  color: #a5b4fc; /* Light indigo branding */
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -48,16 +51,14 @@
   margin: 0.25rem 0 0;
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #1e293b 0%, #4338ca 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
 }
 
 /* Close Button */
 .copilot-sidebar .icon-button {
   background: transparent;
   border: none;
-  color: #64748b;
+  color: #cbd5e1;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 50%;
@@ -68,8 +69,8 @@
 }
 
 .copilot-sidebar .icon-button:hover {
-  background: #e2e8f0;
-  color: #334155;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 /* Readiness Score Glassmorphism */
