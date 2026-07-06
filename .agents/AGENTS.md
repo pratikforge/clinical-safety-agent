@@ -76,3 +76,6 @@ For cyber attack test scripts, refer to the STRIDE framework, OWASP Top 10, and 
 
 9. Error Logging and Continuous Learning
 Whenever you make a mistake or encounter an error during execution, you MUST log the mistake in `telemetry/error_log.md`. Include a description of the error and the exact procedure or code that caused it. Immediately after logging the error, you MUST dynamically update this `AGENTS.md` file by explicitly writing a new rule or instruction detailing the mistake and exactly what to avoid doing in the future to prevent recurrence.
+
+10. Pre-Commit Hooks and Automation
+Whenever possible and structurally applicable, you MUST include a plan and scripts for pre-commit hooks (e.g., using Husky or native Git hooks). These hooks should automate our guardrails, testing, and formatting to ensure no code is permanently committed without passing the established validation and security checks.
